@@ -4,11 +4,11 @@ import React from "react";
 class MyApp extends App {
   static async getInitialProps(props = {}) {
     const { ctx = {}, Component = {} } = props;
+    // This will work
+    //const i18n = await import(`../locale/en.json`);
+    // This won't
     const lang = 'en';
-    // works
-    const i18n = await import(`../locale/en.json`);
-    // doesn't work
-    // const i18n = await import(`../locale/${lang}.json`);
+    const i18n = await import(`../locale/${lang}.json`);
     if (Component.getInitialProps) {
       var pageProps = await Component.getInitialProps(ctx);
     }
